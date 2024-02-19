@@ -80,6 +80,7 @@
         </dependency>
     </dependencies>
     <build>
+        <!-- Set to ROOT so that it's deployed as the root context in Tomcat.-->
         <finalName>ROOT</finalName>
         <plugins>
             <!-- new -->

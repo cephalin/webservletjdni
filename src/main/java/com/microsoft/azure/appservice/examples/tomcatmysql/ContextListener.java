@@ -32,7 +32,8 @@ public class ContextListener implements ServletContextListener {
         // if (azureDbUrl!=null) 
         //     props.put("jakarta.persistence.nonJtaDataSource", "jdbc/AZURE_MYSQL_CONNECTIONSTRING_DS");
 
-        EntityManagerFactory emf = Persistence.createEntityManagerFactory("defaultpu", props);
+        // EntityManagerFactory emf = Persistence.createEntityManagerFactory("defaultpu", props);
+        EntityManagerFactory emf = Persistence.createEntityManagerFactory("defaultpu");
         logger.info("Persistence.createEntityManagerFactory done.");
 
         ctx.setAttribute("EMFactory", emf);

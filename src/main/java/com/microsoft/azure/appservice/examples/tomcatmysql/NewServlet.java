@@ -21,8 +21,7 @@ public class NewServlet extends HttpServlet  {
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         logger.info("GET /create");
     
-        RequestDispatcher dispatcher = req.getRequestDispatcher("/WEB-INF/views/newStudent.jsp");
-        dispatcher.forward(req, resp);
+        req.getRequestDispatcher("/WEB-INF/views/newStudent.jsp").forward(req, resp);
     }
 
     @Override
@@ -60,6 +59,5 @@ public class NewServlet extends HttpServlet  {
         } else {
             resp.sendRedirect("/");
         }
-
     }
 }

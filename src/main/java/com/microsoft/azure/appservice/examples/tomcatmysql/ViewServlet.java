@@ -23,7 +23,7 @@ public class ViewServlet extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 
-        logger.info("GET / foobar");
+        logger.info("GET /");
 
         EntityManagerFactory emf = (EntityManagerFactory) req.getServletContext().getAttribute("EMFactory");
         EntityManager em = emf.createEntityManager();
@@ -31,6 +31,7 @@ public class ViewServlet extends HttpServlet {
         try {
             transaction.begin();
             List<Student> students = em.createQuery("SELECT a FROM Student a", Student.class).getResultList();
+            transaction.commit();
             req.setAttribute("studentRecords", students);
         } catch (Exception e) {
             if(transaction != null && transaction.isActive())
@@ -40,7 +41,6 @@ public class ViewServlet extends HttpServlet {
             em.close();
         }
 
-        RequestDispatcher dispatcher = req.getRequestDispatcher("/WEB-INF/views/viewStudents.jsp");
-        dispatcher.forward(req, resp);
+        req.getRequestDispatcher("/WEB-INF/views/viewStudents.jsp").forward(req, resp);
     }
 }

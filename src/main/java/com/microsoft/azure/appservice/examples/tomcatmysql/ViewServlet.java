@@ -24,33 +24,33 @@ public class ViewServlet extends HttpServlet {
         logger.info("GET /");
 
         EntityManagerFactory emf = (EntityManagerFactory) req.getServletContext().getAttribute("EMFactory");
-        logger.info("req.getServletContext().getAttribute done");
+        // logger.info("req.getServletContext().getAttribute done");
         EntityManager em = emf.createEntityManager();
-        logger.info("emf.createEntityManager done");
+        // logger.info("emf.createEntityManager done");
         EntityTransaction transaction = em.getTransaction();
-        logger.info("em.getTransaction done");
+        // logger.info("em.getTransaction done");
         try {
             transaction.begin();
-            logger.info("transaction.begin done");
+            // logger.info("transaction.begin done");
             List<Student> students = em.createQuery("SELECT a FROM Student a", Student.class).getResultList();
-            logger.info("em.createQuery done");
+            // logger.info("em.createQuery done");
             transaction.commit();
-            logger.info("transaction.commit done");
+            // logger.info("transaction.commit done");
             req.setAttribute("studentRecords", students);
-            logger.info("req.setAttribute done");
+            // logger.info("req.setAttribute done");
         } catch (Exception e) {
             logger.info("exception thrown: " + e.getMessage());
             if(transaction != null && transaction.isActive()) {
                 transaction.rollback();
-                logger.info("transaction.rollback done");
+                // logger.info("transaction.rollback done");
             }
             throw e;
         } finally {
             em.close();
-            logger.info("em.close done");
+            // logger.info("em.close done");
         }
 
         req.getRequestDispatcher("/WEB-INF/views/viewStudents.jsp").forward(req, resp);
-        logger.info("req.getRequestDispatcher done");
+        // logger.info("req.getRequestDispatcher done");
     }
 }

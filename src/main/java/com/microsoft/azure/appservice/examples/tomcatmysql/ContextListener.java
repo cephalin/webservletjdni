@@ -21,7 +21,7 @@ public class ContextListener implements ServletContextListener {
     @Override
     public void contextInitialized(ServletContextEvent sce) {
 
-        logger.info("Entered contextInitialized");
+        // logger.info("Entered contextInitialized");
 
         ServletContext ctx = sce.getServletContext();
 
@@ -34,10 +34,10 @@ public class ContextListener implements ServletContextListener {
 
         // EntityManagerFactory emf = Persistence.createEntityManagerFactory("defaultpu", props);
         EntityManagerFactory emf = Persistence.createEntityManagerFactory("defaultpu");
-        logger.info("Persistence.createEntityManagerFactory done.");
+        // logger.info("Persistence.createEntityManagerFactory done.");
 
         ctx.setAttribute("EMFactory", emf);
-        logger.info("ctx.setAttribute done.");
+        // logger.info("ctx.setAttribute done.");
     }
 
     @Override
@@ -46,8 +46,10 @@ public class ContextListener implements ServletContextListener {
         ServletContext ctx = sce.getServletContext();
 
         EntityManagerFactory factory = (EntityManagerFactory) ctx.getAttribute("EMFactory");
-        logger.info("ctx.getAttribute done.");
-        factory.close();
-        logger.info("factory.close done.");
+        // logger.info("ctx.getAttribute done.");
+        if(factory.isOpen()) {
+            factory.close();
+            logger.info("factory.close done.");
+        }
     }
 }

@@ -51,5 +51,6 @@ public class ViewServlet extends HttpServlet {
         }
 
         req.getRequestDispatcher("/WEB-INF/views/viewStudents.jsp").forward(req, resp);
+        logger.info("req.getRequestDispatcher done");
     }
 }

@@ -4,7 +4,7 @@
 
     <groupId>com.microsoft.azure.appservice.examples</groupId>
     <artifactId>tomcatmysql</artifactId>
-    <version>10-SNAPSHOT</version>
+    <version>10--SNAPSHOT</version>
     <packaging>war</packaging>
 
     <name>A Jakarta Servlet @WebServlet example</name>

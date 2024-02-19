@@ -6,8 +6,8 @@
 
   <persistence-unit name="defaultpu"> 
     <provider>org.hibernate.jpa.HibernatePersistenceProvider</provider>
-    <!-- <non-jta-data-source>java:comp/env/jdbc/MYSQLDS</non-jta-data-source> -->
-    <non-jta-data-source>java:comp/env/jdbc/AZURE_MYSQL_CONNECTIONSTRING_DS</non-jta-data-source>
+    <non-jta-data-source>java:comp/env/jdbc/MYSQLDS</non-jta-data-source>
+    <!-- <non-jta-data-source>java:comp/env/jdbc/AZURE_MYSQL_CONNECTIONSTRING_DS</non-jta-data-source> -->
     
     <properties>
       <property name="jakarta.persistence.schema-generation.database.action" value="drop-and-create" />

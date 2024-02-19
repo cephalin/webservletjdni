@@ -10,7 +10,6 @@
     
     <properties>
       <property name="jakarta.persistence.schema-generation.database.action" value="drop-and-create" />
-      <!-- <property name="jakarta.persistence.nonJtaDataSource" value="java:comp/env/jdbc/MYSQLDS" /> -->
       <!-- <property name="hibernate.dialect"  value="org.hibernate.dialect.MySQL8Dialect" /> -->
     </properties>
   </persistence-unit>

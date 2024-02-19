@@ -21,29 +21,25 @@ public class ContextListener implements ServletContextListener {
     @Override
     public void contextInitialized(ServletContextEvent sce) {
 
-        // logger.info("Entered contextInitialized");
+        logger.info("Initializing WebListener.");
 
         ServletContext ctx = sce.getServletContext();
 
         Map<String, String> props = new HashMap<String, String>();
-
         String azureDbUrl= System.getenv("AZURE_MYSQL_CONNECTIONSTRING");
         if (azureDbUrl!=null) 
-            props.put("jakarta.persistence.nonJtaDataSource", "jdbc/AZURE_MYSQL_CONNECTIONSTRING_DS");
+            props.put("jakarta.persistence.nonJtaDataSource", "java:comp/env/jdbc/AZURE_MYSQL_CONNECTIONSTRING_DS");
 
         EntityManagerFactory emf = Persistence.createEntityManagerFactory("defaultpu", props);
-        // EntityManagerFactory emf = Persistence.createEntityManagerFactory("defaultpu");
-        // logger.info("Persistence.createEntityManagerFactory done.");
-
         ctx.setAttribute("EMFactory", emf);
-        // logger.info("ctx.setAttribute done.");
     }
 
     @Override
     public void contextDestroyed(ServletContextEvent sce) {
-        logger.info("Entered contextDestroyed");
-        ServletContext ctx = sce.getServletContext();
 
+        logger.info("Destroying WebListener.");
+
+        ServletContext ctx = sce.getServletContext();
         EntityManagerFactory factory = (EntityManagerFactory) ctx.getAttribute("EMFactory");
         // logger.info("ctx.getAttribute done.");
         if(factory.isOpen()) {

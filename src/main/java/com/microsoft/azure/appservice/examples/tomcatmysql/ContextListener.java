@@ -25,7 +25,7 @@ public class ContextListener implements ServletContextListener {
         //String azureDbUrl= "jdbc:mysql://cephalin-tomcat-server.mysql.database.azure.com:3306/cephalin-tomcat-database?serverTimezone=UTC&sslmode=required&user=claftxejjs&password=83YF76TKMVO47321$";
         String azureDbUrl= System.getenv("AZURE_MYSQL_CONNECTIONSTRING");
         if (azureDbUrl!=null) 
-            props.put("javax.persistence.nonJtaDataSource", "jdbc/AZURE_MYSQL_CONNECTIONSTRING");
+            props.put("javax.persistence.nonJtaDataSource", "jdbc/AZURE_MYSQL_CONNECTIONSTRING_DS");
 
         EntityManagerFactory emf = Persistence.createEntityManagerFactory("defaultpu", props);
         ctx.setAttribute("EMFactory", emf);

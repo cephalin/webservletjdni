@@ -16,8 +16,13 @@ import jakarta.servlet.annotation.WebListener;
 @WebListener
 public class ContextListener implements ServletContextListener {
 
+    private static Logger logger = LogManager.getLogger(ContextListener.class.getName());
+
     @Override
     public void contextInitialized(ServletContextEvent sce) {
+
+        logger.info("Entered contextInitialized");
+
         ServletContext ctx = sce.getServletContext();
 
         Map<String, String> props = new HashMap<String, String>();
@@ -28,14 +33,20 @@ public class ContextListener implements ServletContextListener {
         //     props.put("jakarta.persistence.nonJtaDataSource", "jdbc/AZURE_MYSQL_CONNECTIONSTRING_DS");
 
         EntityManagerFactory emf = Persistence.createEntityManagerFactory("defaultpu", props);
+        logger.info("Persistence.createEntityManagerFactory done.");
+
         ctx.setAttribute("EMFactory", emf);
+        logger.info("ctx.setAttribute done.");
     }
 
     @Override
     public void contextDestroyed(ServletContextEvent sce) {
+        logger.info("Entered contextDestroyed");
         ServletContext ctx = sce.getServletContext();
 
         EntityManagerFactory factory = (EntityManagerFactory) ctx.getAttribute("EMFactory");
+        logger.info("ctx.getAttribute done.");
         factory.close();
+        logger.info("factory.close done.");
     }
 }

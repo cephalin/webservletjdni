@@ -1,7 +1,8 @@
 package com.microsoft.azure.appservice.examples.tomcatmysql;
 
 import java.io.IOException;
-import java.util.logging.Logger;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 
 import com.microsoft.azure.appservice.examples.tomcatmysql.models.Student;
 
@@ -15,7 +16,7 @@ import jakarta.servlet.http.*;
 @WebServlet(urlPatterns = "/create")
 public class NewServlet extends HttpServlet  {
 
-    private static Logger logger = Logger.getLogger(NewServlet.class.getName());
+    private static Logger logger = LogManager.getLogger(NewServlet.class.getName());
 
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {

@@ -6,9 +6,11 @@
 
   <persistence-unit name="defaultpu"> 
     <provider>org.hibernate.jpa.HibernatePersistenceProvider</provider>
-    <non-jta-data-source>java:comp/env/jdbc/MYSQLDS</non-jta-data-source>
+    <non-jta-data-source>jdbc/MYSQLDS</non-jta-data-source>
     <properties>
       <property name="jakarta.persistence.schema-generation.database.action" value="drop-and-create" />
+      <!-- <property name="hibernate.connection.datasource" value="jdbc/MYSQLDS" /> -->
+      <!-- <property name="jakarta.persistence.nonJtaDataSource" value="java:comp/env/jdbc/MYSQLDS" /> -->
       <!-- <property name="hibernate.dialect"  value="org.hibernate.dialect.MySQL8Dialect" /> -->
     </properties>
   </persistence-unit>

@@ -28,14 +28,9 @@
             <version>3.1.1</version>
             <scope>provided</scope>
         </dependency>
-        <!-- For taglib in JSP files to work in Tomcat, but it does cause warnings with the Jetty plugin. -->
-        <!-- <dependency>
-            <groupId>jakarta.servlet.jsp.jstl</groupId>
-            <artifactId>jakarta.servlet.jsp.jstl-api</artifactId>
-            <version>3.0.0</version>
-        </dependency> -->
-        <!-- For taglib in JSP files to work in Tomcat, but it does cause warnings with the Jetty plugin. -->
         <dependency>
+            <!-- Needed in Tomcat taglib in JSP files to work in Tomcat, but it does cause 
+                 warnings with Jetty because Jetty already provides it. -->
             <groupId>org.glassfish.web</groupId>
             <artifactId>jakarta.servlet.jsp.jstl</artifactId>
             <version>2.0.0</version>
@@ -94,7 +89,6 @@
                 <artifactId>jetty-maven-plugin</artifactId>
                 <version>11.0.20</version>
                 <configuration>
-                    <!-- <jettyXml>jetty-env.xml</jettyXml> -->
                     <webApp>
                         <contextPath>/</contextPath>
                     </webApp>

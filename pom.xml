@@ -94,7 +94,7 @@
                 <artifactId>jetty-maven-plugin</artifactId>
                 <version>11.0.20</version>
                 <configuration>
-                    <jettyXml>jetty-env.xml</jettyXml>
+                    <!-- <jettyXml>jetty-env.xml</jettyXml> -->
                     <webApp>
                         <contextPath>/</contextPath>
                     </webApp>

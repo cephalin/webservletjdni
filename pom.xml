@@ -34,12 +34,12 @@
             <artifactId>jakarta.servlet.jsp.jstl-api</artifactId>
             <version>3.0.0</version>
         </dependency> -->
-            <!-- For taglib in JSP files to work in Tomcat -->
-        <!-- <dependency>
+        <!-- For taglib in JSP files to work in Tomcat, but it does cause warnings with the Jetty plugin. -->
+        <dependency>
             <groupId>org.glassfish.web</groupId>
             <artifactId>jakarta.servlet.jsp.jstl</artifactId>
             <version>2.0.0</version>
-        </dependency> -->
+        </dependency>
         <dependency>
             <groupId>org.hibernate.orm</groupId>
             <artifactId>hibernate-core</artifactId>

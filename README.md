@@ -17,7 +17,7 @@ description: This is a Tomcat web app using Servlet 5.0 and the Azure Database f
 
 # Deploy a Tomcat web app with MySQL in Azure
 
-his is a Tomcat web app using Servlet 5.0 and the Azure Database for MySQL flexible server. The Tomcat app is hosted in a fully managed Azure App Service. This app is designed to be be run locally with a Jetty plugin and then deployed to a Tomcat container in Azure App Service. You can either deploy this project by following the tutorial [*Deploy a Tomcat web app with MySQL in Azure*](https://docs.microsoft.com/azure/app-service/tutorial-tomcat-mysql-app) or by using the [Azure Developer CLI (azd)](https://learn.microsoft.com/azure/developer/azure-developer-cli/overview) according to the instructions below.
+This is a Tomcat web app using Servlet 5.0 and the Azure Database for MySQL flexible server. The Tomcat app is hosted in a fully managed Azure App Service. This app is designed to be be run locally with a Jetty plugin and then deployed to a Tomcat container in Azure App Service. You can either deploy this project by following the tutorial [*Deploy a Tomcat web app with MySQL in Azure*](https://docs.microsoft.com/azure/app-service/tutorial-tomcat-mysql-app) or by using the [Azure Developer CLI (azd)](https://learn.microsoft.com/azure/developer/azure-developer-cli/overview) according to the instructions below.
 
 ## Run the sample
 

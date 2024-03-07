@@ -13,6 +13,9 @@ bin/
 # NetBeans
 nb-configuration.xml
 
+# Azure Developer CLI
+.azure
+
 # Visual Studio Code
 .vscode
 
